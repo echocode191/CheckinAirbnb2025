@@ -11,7 +11,7 @@ const Contact = () => {
   const phoneNumber = "0782614845";
   const emailAddress = "echoworld191@gmail.com";
   const whatsappLink =
-    "https://wa.me/254721635810?text=Hi! I have a question about your accommodations.";
+    "https://wa.me/254782614845?text=Hi! I have a question about your accommodations.";
 
   const glassStyle = {
     background: "rgba(255, 255, 255, 0.12)",
@@ -218,4 +218,5 @@ const Contact = () => {
 };
 
 export default Contact;
+
 
