@@ -14,9 +14,11 @@ const Navbar = () => {
     { path: "/accommodation", label: "Rooms" },
     { path: "/menu", label: "Menu" },
     { path: "/offers", label: "Offers" },
-    { path: "/gallery", label: "Gallery" },
+    { path: "/contact", label: "Contact" },
     { path: "/location", label: "Location" },
     { path: "/contact", label: "Contact" },
+    
+    { path: "/about", label: "About" },
   ];
 
   const isActive = (path) => location.pathname === path;
