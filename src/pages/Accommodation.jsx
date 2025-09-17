@@ -108,7 +108,7 @@ const Accommodation = () => {
 
   const bookViaWhatsApp = () => {
     const message = `Hi! I'd like to book the ${guestInfo.roomType}. My name is ${guestInfo.name}, phone: ${guestInfo.phone}. Check-in: ${guestInfo.checkIn}, Check-out: ${guestInfo.checkOut}, Duration: ${guestInfo.duration}.`;
-    const url = `https://wa.me/254721635810?text=${encodeURIComponent(
+    const url = `https://wa.me/254782614845?text=${encodeURIComponent(
       message
     )}`;
     window.open(url, "_blank");
@@ -281,3 +281,4 @@ const Accommodation = () => {
 };
 
 export default Accommodation;
+
