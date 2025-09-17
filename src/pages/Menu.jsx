@@ -29,7 +29,7 @@ const Menu = () => {
 
   const handleOrder = (itemName, price) => {
     const message = `Hi! I would like to order: ${itemName} - ${price}`;
-    const url = `https://wa.me/254721635810?text=${encodeURIComponent(message)}`;
+    const url = `https://wa.me/254782614845?text=${encodeURIComponent(message)}`;
     window.open(url, '_blank');
   };
 
@@ -169,7 +169,7 @@ const Menu = () => {
           For special requests or bulk orders, contact us directly.
         </p>
         <a
-          href="https://wa.me/254721635810?text=Hi! I have a special request for a breakfast order."
+          href="https://wa.me/254782614845?text=Hi! I have a special request for a breakfast order."
           target="_blank"
           rel="noopener noreferrer"
           style={{ ...whatsappButton, display: 'inline-block', textDecoration: 'none' }}
@@ -193,7 +193,7 @@ const Menu = () => {
           Enjoy our breakfast in the comfort of your room. Delivery available for all guests.
         </p>
         <a
-          href="https://wa.me/254721635810?text=Hi! I would like to order breakfast delivery to my room."
+          href="https://wa.me/254782614845?text=Hi! I would like to order breakfast delivery to my room."
           target="_blank"
           rel="noopener noreferrer"
           style={{ ...whatsappButton, display: 'inline-block', textDecoration: 'none' }}
@@ -206,3 +206,4 @@ const Menu = () => {
 };
 
 export default Menu;
+
