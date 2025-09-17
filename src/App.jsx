@@ -30,8 +30,6 @@ const Loader = () => (
       animation: "spin 1s linear infinite"
     }} />
     <p style={{ marginTop: "15px", fontSize: "18px" }}>Loading...</p>
-
-    {/* Inline keyframes for loader */}
     <style>
       {`
         @keyframes spin {
@@ -46,19 +44,15 @@ const Loader = () => (
 const App = () => {
   const [loading, setLoading] = useState(true);
 
-  // Loader timeout
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1200);
     return () => clearTimeout(timer);
   }, []);
 
-  // Auto refresh to new version when available
   useEffect(() => {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistrations().then(registrations => {
-        registrations.forEach(registration => {
-          registration.update();
-        });
+      navigator.serviceWorker.getRegistrations().then(regs => {
+        regs.forEach(r => r.update());
       });
     }
   }, []);
@@ -86,6 +80,9 @@ const App = () => {
             <Route path="/location" element={<Location />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/offers" element={<Offers />} />
+
+            {/* Catch-all: any unknown path renders Home */}
+            <Route path="*" element={<Home />} />
           </Routes>
         </main>
         <Footer />
