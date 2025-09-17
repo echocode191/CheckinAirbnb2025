@@ -8,7 +8,7 @@ const Contact = () => {
     message: "",
   });
 
-  const phoneNumber = "0721635810";
+  const phoneNumber = "0782614845";
   const emailAddress = "echoworld191@gmail.com";
   const whatsappLink =
     "https://wa.me/254721635810?text=Hi! I have a question about your accommodations.";
@@ -218,3 +218,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
