@@ -7,7 +7,7 @@ const Navbar = () => {
   const location = useLocation();
 
   const whatsappLink =
-    "https://wa.me/254721635810?text=Hi! I'm interested in booking a stay with Check in Airbnb.";
+    "https://wa.me/254782614845?text=Hi! I'm interested in booking a stay with Check in Airbnb.";
 
   const navLinks = [
     { path: "/", label: "Home" },

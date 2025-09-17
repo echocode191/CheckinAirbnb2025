@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
-  const phoneNumber = "0721635810";
+  const phoneNumber = "0782614845";
   const emailAddress = "echoworld191@gmail.com";
-  const whatsappLink = `https://wa.me/254721635810?text=Hi! I'm interested in booking a stay with Check in Airbnb.`;
-  const echobuizLink = `https://wa.me/254721625810?text=Hi%20Echobuiz!%20I%20saw%20your%20website%20services%20👋`;
+  const whatsappLink = `https://wa.me/254782614845?text=Hi! I'm interested in booking a stay with Check in Airbnb.`;
+  const echobuizLink = `https://wa.me/254782614845?text=Hi%20Echobuiz!%20I%20saw%20your%20website%20services%20👋`;
   const currentYear = new Date().getFullYear();
 
   const glassStyle = {
@@ -47,6 +47,7 @@ const Footer = () => {
             <Link to="/accommodation" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Rooms</Link>
             <Link to="/offers" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Offers</Link>
             <Link to="/gallery" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Gallery</Link>
+            <Link to="/about" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>About</Link>
             <Link to="/location" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Location</Link>
             <Link to="/contact" style={{ color: '#fff', textDecoration: 'none', fontSize: '16px' }}>Contact</Link>
           </div>
