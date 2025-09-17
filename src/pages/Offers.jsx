@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 
 const Offers = () => {
   const [selectedOffer, setSelectedOffer] = useState(null);
-  const phoneNumber = "0721635810";
-  const whatsappLink = `https://wa.me/254721635810?text=Hi! I'm interested in booking a stay with Check in Airbnb.`;
+  const phoneNumber = "0782614845";
+  const whatsappLink = `https://wa.me/25782614845?text=Hi! I'm interested in booking a stay with Check in Airbnb.`;
 
   const glassStyle = {
     background: 'rgba(255, 255, 255, 0.15)',
@@ -280,5 +280,6 @@ const Offers = () => {
     </div>
   );
 };
+
 
 export default Offers;
