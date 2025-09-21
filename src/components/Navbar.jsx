@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png"; // ✅ Import logo
+import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,8 +16,6 @@ const Navbar = () => {
     { path: "/offers", label: "Offers" },
     { path: "/contact", label: "Contact" },
     { path: "/location", label: "Location" },
-    { path: "/contact", label: "Contact" },
-    
     { path: "/about", label: "About" },
   ];
 
@@ -26,46 +24,93 @@ const Navbar = () => {
   return (
     <nav
       style={{
-        background: "rgba(255,255,255,0.15)",
-        backdropFilter: "blur(10px)",
-        borderRadius: "12px",
-        border: "1px solid rgba(255,255,255,0.2)",
-        padding: "10px 15px",
-        margin: "8px",
+        background: "linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(147, 112, 219, 0.15))",
+        backdropFilter: "blur(16px)",
+        borderRadius: "20px",
+        border: "1px solid rgba(255, 255, 255, 0.3)",
+        padding: "12px 20px",
+        margin: "10px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center",
         position: "sticky",
-        top: "8px",
+        top: "10px",
         zIndex: 1000,
+        boxShadow: "0 8px 32px rgba(255, 105, 180, 0.15)",
       }}
     >
-      {/* Logo */}
+      {/* Logo and Title */}
       <div>
         <Link
           to="/"
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "8px",
+            gap: "12px",
             textDecoration: "none",
           }}
         >
-          <img
-            src={logo}
-            alt="Checkin Airbnb Logo"
-            style={{ width: "34px", height: "34px", borderRadius: "6px" }}
-          />
-          <span
-            style={{
-              color: "#fff",
-              fontWeight: "bold",
-              fontSize: "18px",
-              whiteSpace: "nowrap",
-            }}
-          >
-            checkinairbnbfedha.co.ke
-          </span>
+          <div style={{ position: "relative" }}>
+            <img
+              src={logo}
+              alt="CheckIn Stays Logo"
+              style={{ 
+                width: "40px", 
+                height: "40px", 
+                borderRadius: "10px",
+                boxShadow: "0 4px 12px rgba(255, 105, 180, 0.3)",
+                transition: "transform 0.3s ease"
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = "scale(1.1)";
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = "scale(1)";
+              }}
+            />
+            <div style={{
+              position: "absolute",
+              bottom: "-4px",
+              right: "-4px",
+              width: "16px",
+              height: "16px",
+              borderRadius: "50%",
+              background: "linear-gradient(45deg, #FF69B4, #9370DB)",
+              border: "2px solid white",
+              zIndex: 2
+            }}></div>
+          </div>
+          <div>
+            <span
+              style={{
+                background: "linear-gradient(45deg, #FF69B4, #9370DB)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                fontWeight: "700",
+                fontSize: "22px",
+                whiteSpace: "nowrap",
+                fontFamily: "'Playfair Display', serif",
+                textShadow: "0 2px 4px rgba(255, 105, 180, 0.2)",
+                display: "block",
+                lineHeight: "1.2"
+              }}
+            >
+              CheckIn Stays
+            </span>
+            <span
+              style={{
+                color: "#9370DB",
+                fontSize: "12px",
+                fontWeight: "600",
+                whiteSpace: "nowrap",
+                opacity: 0.8,
+                display: "block",
+                marginTop: "-2px"
+              }}
+            >
+              Woman-Owned Luxury
+            </span>
+          </div>
         </Link>
       </div>
 
@@ -75,11 +120,18 @@ const Navbar = () => {
         style={{
           background: "none",
           border: "none",
-          color: "white",
-          fontSize: "22px",
+          color: "#9370DB",
+          fontSize: "24px",
           cursor: "pointer",
           marginLeft: "auto",
           display: "block",
+          transition: "transform 0.3s ease",
+        }}
+        onMouseEnter={(e) => {
+          e.target.style.transform = "scale(1.1)";
+        }}
+        onMouseLeave={(e) => {
+          e.target.style.transform = "scale(1)";
         }}
       >
         {isOpen ? "✕" : "☰"}
@@ -93,13 +145,16 @@ const Navbar = () => {
             top: "100%",
             left: 0,
             right: 0,
-            background: "rgba(0,0,0,0.85)",
-            borderRadius: "8px",
-            marginTop: "6px",
+            background: "linear-gradient(135deg, rgba(255, 105, 180, 0.9), rgba(147, 112, 219, 0.85))",
+            backdropFilter: "blur(10px)",
+            borderRadius: "12px",
+            marginTop: "10px",
             display: "flex",
             flexDirection: "column",
             gap: "12px",
-            padding: "15px",
+            padding: "20px",
+            boxShadow: "0 8px 32px rgba(0, 0, 0, 0.2)",
+            border: "1px solid rgba(255, 255, 255, 0.2)",
           }}
         >
           {navLinks.map((link) => (
@@ -108,15 +163,29 @@ const Navbar = () => {
               to={link.path}
               onClick={() => setIsOpen(false)}
               style={{
-                color: isActive(link.path) ? "#4facfe" : "#fff",
-                fontWeight: isActive(link.path) ? "bold" : "normal",
+                color: isActive(link.path) ? "#fff" : "rgba(255, 255, 255, 0.9)",
+                fontWeight: isActive(link.path) ? "bold" : "600",
                 textDecoration: "none",
                 fontSize: "16px",
-                padding: "8px 12px",
-                borderRadius: "6px",
+                padding: "10px 15px",
+                borderRadius: "10px",
                 background: isActive(link.path)
-                  ? "rgba(79,172,254,0.15)"
+                  ? "rgba(255, 255, 255, 0.2)"
                   : "transparent",
+                transition: "all 0.3s ease",
+                borderLeft: isActive(link.path) 
+                  ? "3px solid #fff" 
+                  : "3px solid transparent",
+              }}
+              onMouseEnter={(e) => {
+                if (!isActive(link.path)) {
+                  e.target.style.background = "rgba(255, 255, 255, 0.1)";
+                }
+              }}
+              onMouseLeave={(e) => {
+                if (!isActive(link.path)) {
+                  e.target.style.background = "transparent";
+                }
               }}
             >
               {link.label}
@@ -128,15 +197,25 @@ const Navbar = () => {
             target="_blank"
             rel="noopener noreferrer"
             style={{
-              background: "linear-gradient(45deg,#25D366,#128C7E)",
+              background: "linear-gradient(45deg, #25D366, #128C7E)",
               color: "#fff",
               textAlign: "center",
               fontWeight: "bold",
-              padding: "10px",
-              borderRadius: "6px",
+              padding: "12px",
+              borderRadius: "10px",
               textDecoration: "none",
               fontSize: "16px",
-              boxShadow: "0 4px 10px rgba(37,211,102,0.3)",
+              boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
+              marginTop: "8px",
+              transition: "transform 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              e.target.style.transform = "translateY(-3px)";
+              e.target.style.boxShadow = "0 6px 20px rgba(37, 211, 102, 0.4)";
+            }}
+            onMouseLeave={(e) => {
+              e.target.style.transform = "translateY(0)";
+              e.target.style.boxShadow = "0 4px 15px rgba(37, 211, 102, 0.3)";
             }}
           >
             💬 WhatsApp Booking
@@ -151,14 +230,44 @@ const Navbar = () => {
             key={link.path}
             to={link.path}
             style={{
-              color: isActive(link.path) ? "#4facfe" : "#fff",
-              fontWeight: isActive(link.path) ? "bold" : "normal",
+              color: isActive(link.path) ? "#9370DB" : "#555",
+              fontWeight: isActive(link.path) ? "bold" : "600",
               textDecoration: "none",
-              marginLeft: "15px",
+              marginLeft: "20px",
               fontSize: "16px",
+              padding: "8px 12px",
+              borderRadius: "8px",
+              position: "relative",
+              transition: "all 0.3s ease",
+            }}
+            onMouseEnter={(e) => {
+              if (!isActive(link.path)) {
+                e.target.style.color = "#FF69B4";
+                e.target.style.background = "rgba(255, 105, 180, 0.1)";
+              }
+            }}
+            onMouseLeave={(e) => {
+              if (!isActive(link.path)) {
+                e.target.style.color = "#555";
+                e.target.style.background = "transparent";
+              }
             }}
           >
             {link.label}
+            {isActive(link.path) && (
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: "-5px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  width: "30px",
+                  height: "3px",
+                  background: "linear-gradient(45deg, #FF69B4, #9370DB)",
+                  borderRadius: "2px",
+                }}
+              ></span>
+            )}
           </Link>
         ))}
         <a
@@ -166,14 +275,24 @@ const Navbar = () => {
           target="_blank"
           rel="noopener noreferrer"
           style={{
-            marginLeft: "15px",
-            background: "linear-gradient(45deg,#25D366,#128C7E)",
+            marginLeft: "20px",
+            background: "linear-gradient(45deg, #25D366, #128C7E)",
             color: "white",
-            padding: "6px 12px",
-            borderRadius: "6px",
+            padding: "10px 16px",
+            borderRadius: "10px",
             textDecoration: "none",
             fontWeight: "bold",
-            fontSize: "14px",
+            fontSize: "15px",
+            boxShadow: "0 4px 15px rgba(37, 211, 102, 0.3)",
+            transition: "all 0.3s ease",
+          }}
+          onMouseEnter={(e) => {
+            e.target.style.transform = "translateY(-3px)";
+            e.target.style.boxShadow = "0 6px 20px rgba(37, 211, 102, 0.4)";
+          }}
+          onMouseLeave={(e) => {
+            e.target.style.transform = "translateY(0)";
+            e.target.style.boxShadow = "0 4px 15px rgba(37, 211, 102, 0.3)";
           }}
         >
           💬 Book Now
@@ -188,6 +307,8 @@ const Navbar = () => {
             nav button{ display:none !important; }
             nav div[style*="position: absolute"]{ display:none !important; }
           }
+          
+          @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap');
         `}
       </style>
     </nav>
