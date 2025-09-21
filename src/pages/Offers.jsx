@@ -3,25 +3,11 @@ import React, { useState, useEffect } from 'react';
 const Offers = () => {
   const [selectedOffer, setSelectedOffer] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [currentTime, setCurrentTime] = useState('');
-  const [currentDate, setCurrentDate] = useState('');
   const phoneNumber = "0782614845";
   const whatsappLink = `https://wa.me/25782614845?text=Hi! I'm interested in booking a stay with Check in Airbnb.`;
 
   useEffect(() => {
     setIsVisible(true);
-    
-    // Update time every second
-    const updateTime = () => {
-      const now = new Date();
-      setCurrentTime(now.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
-      setCurrentDate(now.toLocaleDateString([], { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' }));
-    };
-    
-    updateTime();
-    const timeInterval = setInterval(updateTime, 1000);
-    
-    return () => clearInterval(timeInterval);
   }, []);
 
   // Pink and purple color palette
@@ -142,14 +128,14 @@ const Offers = () => {
 
   return (
     <div style={{ 
-      padding: '0 15px',
+      padding: '20px',
       background: 'linear-gradient(145deg, #fff0f5, #f3e5ff)',
       borderRadius: '24px',
       overflow: 'hidden',
       position: 'relative',
       minHeight: '100vh'
     }}>
-      {/* Decorative elements */}
+      {/* Decorative elements - positioned to not overlay content */}
       <div style={{
         position: 'absolute',
         top: '-100px',
@@ -171,43 +157,7 @@ const Offers = () => {
         zIndex: 0
       }}></div>
       
-      {/* Woman-owned badge */}
-      <div style={{
-        position: 'absolute',
-        top: '20px',
-        right: '20px',
-        background: 'linear-gradient(45deg, #FF69B4, #9370DB)',
-        color: 'white',
-        padding: '8px 16px',
-        borderRadius: '50px',
-        fontSize: '14px',
-        fontWeight: 'bold',
-        display: 'flex',
-        alignItems: 'center',
-        gap: '8px',
-        zIndex: 2
-      }}>
-        <span>♀️</span> Woman-Owned Business
-      </div>
-      
-      {/* Real-time clock display */}
-      <div style={{
-        position: 'absolute',
-        top: '20px',
-        left: '20px',
-        background: 'rgba(255, 255, 255, 0.8)',
-        backdropFilter: 'blur(10px)',
-        borderRadius: '16px',
-        padding: '12px 20px',
-        boxShadow: '0 4px 15px rgba(255, 105, 180, 0.2)',
-        zIndex: 2,
-        textAlign: 'center'
-      }}>
-        <div style={{ fontSize: '24px', fontWeight: 'bold', color: '#9370DB' }}>{currentTime}</div>
-        <div style={{ fontSize: '14px', color: '#FF69B4' }}>{currentDate}</div>
-      </div>
-      
-      <div style={{ position: 'relative', zIndex: 1, padding: '20px 0' }}>
+      <div style={{ position: 'relative', zIndex: 1 }}>
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <h1 style={{ 
             fontSize: 'clamp(28px, 6vw, 42px)', 
@@ -233,7 +183,8 @@ const Offers = () => {
         <div style={{
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fill, minmax(300px, 1fr))',
-          gap: '25px'
+          gap: '25px',
+          marginBottom: '50px'
         }}>
           {offers.map((offer, index) => (
             <div 
@@ -320,8 +271,7 @@ const Offers = () => {
         <div style={{ 
           ...glassStyle, 
           padding: '30px', 
-          marginTop: '50px', 
-          textAlign: 'center',
+          marginBottom: '40px',
           background: 'linear-gradient(135deg, rgba(255, 105, 180, 0.2), rgba(147, 112, 219, 0.15))'
         }}>
           <h2 style={{ 
@@ -329,7 +279,8 @@ const Offers = () => {
             marginBottom: '15px', 
             color: '#9370DB',
             fontFamily: "'Playfair Display', serif",
-            fontWeight: '600'
+            fontWeight: '600',
+            textAlign: 'center'
           }}>
             Quick Booking
           </h2>
@@ -338,7 +289,8 @@ const Offers = () => {
             marginBottom: '25px', 
             maxWidth: '600px', 
             marginInline: 'auto',
-            color: '#555'
+            color: '#555',
+            textAlign: 'center'
           }}>
             Have questions or ready to book? Contact us directly and our team will assist you promptly!
           </p>
@@ -512,7 +464,7 @@ const Offers = () => {
                         fontSize: '16px', 
                         fontWeight: 'bold', 
                         color: '#333',
-                        fontFamily: "'Nunito Sans', sans-serif"
+                        fontFamily: "'Nunito Sans', sans-serif",
                       }}>
                         {option.name}
                       </div>
