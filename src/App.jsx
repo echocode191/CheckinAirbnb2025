@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
@@ -72,7 +72,9 @@ const App = () => {
         <Navbar />
         <main style={{ flex: "1 0 auto", paddingTop: '10px', paddingBottom: '80px' }}>
           <Routes>
+            {/* Explicitly define all valid routes */}
             <Route path="/" element={<Home />} />
+            <Route path="/home" element={<Navigate to="/" replace />} />
             <Route path="/about" element={<About />} />
             <Route path="/accommodation" element={<Accommodation />} />
             <Route path="/contact" element={<Contact />} />
@@ -80,9 +82,18 @@ const App = () => {
             <Route path="/location" element={<Location />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/offers" element={<Offers />} />
-
-            {/* Catch-all: any unknown path renders Home */}
-            <Route path="*" element={<Home />} />
+            
+            {/* Handle case-sensitive routes by redirecting to lowercase */}
+            <Route path="/About" element={<Navigate to="/about" replace />} />
+            <Route path="/Accommodation" element={<Navigate to="/accommodation" replace />} />
+            <Route path="/Contact" element={<Navigate to="/contact" replace />} />
+            <Route path="/Gallery" element={<Navigate to="/gallery" replace />} />
+            <Route path="/Location" element={<Navigate to="/location" replace />} />
+            <Route path="/Menu" element={<Navigate to="/menu" replace />} />
+            <Route path="/Offers" element={<Navigate to="/offers" replace />} />
+            
+            {/* Catch-all: any unknown path redirects to Home */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </main>
         <Footer />
